@@ -8,23 +8,24 @@ def creeazavanzare_carte(id, titlu, gen, pret, tip_reducere):
     :param tip_reducere: string
     :return: un dictionar ce retine o carte
     """
-    return{
-        'id': id,
-        'titlu': titlu,
-        'gen': gen,
-        'pret': pret,
-        'tip_reducere': tip_reducere
+    dict = [
+         id,
+         titlu,
+         gen,
+         pret,
+         tip_reducere
 
-    }
+    ]
+    return dict
 
 
 def getid(carte):
     """
     Ia id-ul cartii.
     :param carte:dictionar de tipuri de carte
-    :return:id-ul prajiturii
+    :return:id-ul cartii
     """
-    return carte['id']
+    return carte[0]
 
 
 def gettitlu(carte):
@@ -33,7 +34,7 @@ def gettitlu(carte):
     :param carte: dictionar de tipuri de carte
     :return: titlul cartii
     """
-    return carte['titlu']
+    return carte[1]
 
 
 def getgen(carte):
@@ -42,7 +43,7 @@ def getgen(carte):
     :param carte: dictionar de tipuri de carte
     :return: genul cartii
     """
-    return carte['gen']
+    return carte[2]
 
 
 def getpret(carte):
@@ -51,7 +52,7 @@ def getpret(carte):
     :param carte: dictionar de tipuri de carte
     :return: pretul cartii
     """
-    return carte['pret']
+    return carte[3]
 
 
 def gettip_reducere(carte):
@@ -60,7 +61,7 @@ def gettip_reducere(carte):
     :param carte: dictionar de tipuri de carte
     :return: titlul cartii
     """
-    return carte['tip_reducere']
+    return carte[4]
 
 
 def tostring(carte):
@@ -71,3 +72,5 @@ def tostring(carte):
         getpret(carte),
         gettip_reducere(carte)
     )
+
+print(list)
