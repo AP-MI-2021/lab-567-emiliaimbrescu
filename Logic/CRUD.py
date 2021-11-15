@@ -12,6 +12,16 @@ def adauga_vanzare_carte(id, titlu, gen, pret, tip_reducere, lista):
     :param lista: lista de carti vandute
     :return: o lista cu cartile vechi si cea nou vanduta
     """
+    if getByID(id, lista) is not None:
+        raise ValueError("Exista o carte cu id-ul dat!")
+    if int(id) < 0:
+        raise ValueError("ID-ul nu poate fi negativ!")
+    if len(titlu) == 0:
+        raise ValueError("Insereaza un titlu!")
+    if len(gen) == 0:
+        raise ValueError("Insereaza un gen!")
+    if pret < 0:
+        raise ValueError("Pretul nu poate fi negativ!")
     carte = creeazavanzare_carte(id, titlu, gen, pret, tip_reducere)
     return lista + [carte]
 
@@ -23,6 +33,8 @@ def sterge_carte(id, lista):
     :param lista: lista de carti vandute
     :return: o lista ce contine cartile vechi mai putin pe cea stearsa
     """
+    if getByID(id, lista) is None:
+        raise ValueError("Nu exista o carte cu id-ul dat!")
     return [carte for carte in lista if getid(carte) != id]
 
 
@@ -37,6 +49,16 @@ def modifica_carte(id, titlu, gen, pret, tip_reducere, lista):
     :param lista: lista de carti vandute
     :return: lista veche cu modificarile efectuate
     """
+    if getByID(id, lista) is None:
+        raise ValueError("Nu exista o carte cu id-ul dat!")
+    if int(id) < 0:
+        raise ValueError("ID-ul nu poate fi negativ!")
+    if len(titlu) == 0:
+        raise ValueError("Insereaza un titlu!")
+    if len(gen) == 0:
+        raise ValueError("Insereaza un gen!")
+    if pret < 0:
+        raise ValueError("Pretul nu poate fi negativ!")
     listaNoua = []
     for carte in lista:
         if getid(carte) == id:

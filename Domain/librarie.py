@@ -14,7 +14,6 @@ def creeazavanzare_carte(id, titlu, gen, pret, tip_reducere):
          gen,
          pret,
          tip_reducere
-
     ]
     return dict
 
