@@ -4,7 +4,6 @@ from Logic.CRUD import adauga_vanzare_carte, getByID
 
 def print_help():
     print("Comenzi disponibile: ")
-    print("Ajutor")
     print("Adauga carte vanduta: adauga, id, titlu, gen, pret, reducere")
     print("Sterge carte vanduta: sterge, id")
     print("Afisare")
@@ -36,20 +35,20 @@ def showall(lista):
 
 
 def run_console(lista):
-    contor = True
-    while contor:
-        comenzi = input("Introduceti comenzile: ")
-        functii = comenzi.split(";")
+    ajutor = input('Daca aveti nevoie de ajutor, tastati Ajutor: ')
+    if ajutor == 'Ajutor':
+        print_help()
+    while True:
+        comenzi = input('Introduceti comenzile: ')
+        functii = comenzi.split(';')
         for functie in functii:
-            parametrii = functie.split(",")
-            if parametrii[0] == "Ajutor":
-                print_help()
-            elif parametrii[0] == "Adauga":
+            parametrii = functie.split(',')
+            if parametrii[0] == 'Adauga':
                 lista = adauga(lista, parametrii)
-            elif parametrii[0] == "Sterge":
+            elif parametrii[0] == 'Sterge':
                 lista = sterge(lista, parametrii)
-            elif parametrii[0] == "Afisare":
-                print("Lista de vanzari este: ")
+            elif parametrii[0] == 'Afisare':
+                print('Lista de vanzari este: ')
                 showall(lista)
-            elif parametrii[0] == "Stop":
-                contor = False
+            elif parametrii[0] == 'Stop':
+                return False
