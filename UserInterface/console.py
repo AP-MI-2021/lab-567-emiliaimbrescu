@@ -119,11 +119,11 @@ def runMenu(lista):
         elif optiune == '5':
             lista = uiModifica_genul_cartii(lista, undo_list, redo_list)
         elif optiune == '6':
-            lista = uiPret_minim(lista)
+            uiPret_minim(lista)
         elif optiune == '7':
             lista = uiOrdine_crescatoare(lista, undo_list, redo_list)
         elif optiune == '8':
-            lista = uiTitluri_distincte(lista)
+            uiTitluri_distincte(lista)
         elif optiune == "U":
             if len(undo_list) > 0:
                 redo_list.append(lista)
